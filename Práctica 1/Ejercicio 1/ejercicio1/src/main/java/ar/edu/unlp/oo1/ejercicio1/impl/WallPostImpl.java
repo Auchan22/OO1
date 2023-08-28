@@ -12,9 +12,9 @@ public class WallPostImpl implements WallPost {
 	 * Complete con su implementación
 	 */
 	
-	String text = new String("");
-	int likes = 0;
-	boolean featured = false;
+	private String text = new String("");
+	private int likes = 0;
+	private boolean featured = false;
 	
 	public WallPostImpl() {
 		this.text = "Undefined post";
@@ -54,7 +54,9 @@ public class WallPostImpl implements WallPost {
 	 * Decrementa la cantidad de likes en uno. Si ya es 0, no hace nada.
 	*/
 	public void dislike() {
-		this.likes--;
+		if(this.likes != 0) {
+			this.likes--;
+		}
 	}
 
 
