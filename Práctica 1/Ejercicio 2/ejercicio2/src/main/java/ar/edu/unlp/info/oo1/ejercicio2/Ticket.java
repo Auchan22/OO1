@@ -1,12 +1,18 @@
 package ar.edu.unlp.info.oo1.ejercicio2;
 
+import java.time.LocalDate;
+
 public class Ticket {
 
 	private java.time.LocalDate Fecha;
 	private int cantidadDeProductos;
 	private double pesoTotal, precioTotal;
 
-	public Ticket() {
+	public Ticket(int ct, double pT, double prT) {
+		this.Fecha = LocalDate.now();
+		this.cantidadDeProductos = ct;
+		this.pesoTotal = pT;
+		this.precioTotal = prT;
 	}
 
 	public java.time.LocalDate getFecha() {
@@ -21,24 +27,12 @@ public class Ticket {
 		return this.cantidadDeProductos;
 	}
 
-	public void setCantidadDeProductos(int cantidadDeProductos) {
-		this.cantidadDeProductos = cantidadDeProductos;
-	}
-
 	public double getPesoTotal() {
 		return this.pesoTotal;
 	}
 
-	public void setPesoTotal(double pesoTotal) {
-		this.pesoTotal = pesoTotal;
-	}
-
 	public double getPrecioTotal() {
 		return precioTotal;
-	}
-
-	public void setPrecioTotal(double precioTotal) {
-		this.precioTotal = precioTotal;
 	}
 
 	/**

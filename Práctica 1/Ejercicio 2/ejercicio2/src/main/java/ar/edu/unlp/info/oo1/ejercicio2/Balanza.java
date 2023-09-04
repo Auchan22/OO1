@@ -1,28 +1,33 @@
 package ar.edu.unlp.info.oo1.ejercicio2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Balanza {
 
-	private int cantidadDeProductos = 0;
-	private double precioTotal, pesoTotal;
+	private List<Producto> productos;
 
 	public Balanza() {
+		this.productos = new ArrayList<Producto>();
 	}
 
 	
-	
 	public int getCantidadDeProductos() {
-		return cantidadDeProductos;
+		return (int) this.productos.stream().count();
 	}
 
 	public double getPrecioTotal() {
-		return precioTotal;
+		return this.productos.stream().mapToDouble(value -> value.getPrecio()).sum();	
 	}
 
 
 	public double getPesoTotal() {
-		return pesoTotal;
+		return this.productos.stream().mapToDouble(value -> value.getPeso()).sum();	
+	}
+	
+	public List<Producto> getProductos(){
+		return this.productos;
 	}
 
 	/**
@@ -31,9 +36,7 @@ public class Balanza {
 	 * @return
 	 */
 	public void ponerEnCero() {
-		this.cantidadDeProductos = 0;
-		this.precioTotal = 0;
-		this.pesoTotal = 0;
+		this.productos = new ArrayList<Producto>();
 	}
 
 	/**
@@ -42,9 +45,7 @@ public class Balanza {
 	 * @param producto
 	 */
 	public void agregarProducto(Producto producto) {
-		this.cantidadDeProductos++;
-		this.pesoTotal += producto.getPeso();
-		this.precioTotal += producto.getPrecio();
+		productos.add(producto);
 	}
 
 	/**
@@ -54,11 +55,7 @@ public class Balanza {
 	 * @return Ticket
 	 */
 	public Ticket emitirTicket() {
-		Ticket t = new Ticket();
-		t.setFecha(LocalDate.now());
-		t.setCantidadDeProductos(this.cantidadDeProductos);
-		t.setPesoTotal(this.pesoTotal);
-		t.setPrecioTotal(this.precioTotal);
+		Ticket t = new Ticket(this.getCantidadDeProductos(), this.getPesoTotal(), this.getPrecioTotal());
 		
 		return t;
 	};
