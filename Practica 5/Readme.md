@@ -8,34 +8,34 @@ classDiagram
     Inversor -->"0..*" Inversion
     class Inversor {
         -nombre: String
-        -inversiones: List~Inversion~
-        <create> +Inversor(n: String)
+        -inversiones: Inversion[*]
+        +<create> +Inversor(n: String)
         +getNombre(): String
-        +getInversiones(): List~Inversion~
+        +getInversiones(): Inversion[*]
         +agregarInversion(i: Inversion)
-        +valorActual(): double
+        +valorActual(): Real
     }
 
     class Inversion{
         <<interface>>
-        +valorActual(): double
+        +valorActual(): Real
     }
     class InversionEnAcciones {
         -nombre: String
-        -cantidad: int
-        -valorUnitario: double
-        <create> +InversionEnAcciones(n: String, c: int, v: double)
+        -cantidad: Integer
+        -valorUnitario: Real
+        <create> +InversionEnAcciones(n: String, c: Integer, v: Real)
         +getNombre(): String
-        +getCantidad(): int
-        +getValorUnitario(): double
+        +getCantidad(): Integer
+        +getValorUnitario(): Real
     }
     class PlazoFijo {
         -fechaDeConstitucion: LocalDate
-        -montoDepositado: double
-        -porcentajeDeInteresDiario: double
-        <create> +PlazoFijo(f: LocalDate, m: double, p: double)
+        -montoDepositado: Real
+        -porcentajeDeInteresDiario: Real
+        <create> +PlazoFijo(f: LocalDate, m: Real, p: Real)
         +getFechaConstitucion(): LocalDate
-        +getMontoDepositado(): double
-        +getPorcentaje(): double
+        +getMontoDepositado(): Real
+        +getPorcentaje(): Real
     }
 ```
