@@ -14,4 +14,16 @@ public class Reserva {
 	public boolean cumple(DateLapse intervalo) {
 		return this.periodo.overlaps(intervalo);
 	}
+	
+	public double calcularPrecio() {
+		return this.propiedad.getPrecioNoche() * this.periodo.sizeInDays();
+	}
+	
+	public DateLapse getPeriodo() {
+		return this.periodo;
+	}
+	
+	public Propiedad getPropiedad() {
+		return this.propiedad;
+	}
 }

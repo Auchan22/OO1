@@ -24,7 +24,23 @@ public class Usuario {
 		this.propiedades.add(p);
 	}
 	
+	public void agregarReserva(Reserva p) {
+		this.reservas.add(p);
+	}
+	
 	public List<Propiedad> propiedadesDisponibles(DateLapse intervalo){
 		return this.propiedades.stream().filter(p -> p.estaDisponible(intervalo)).collect(Collectors.toList());
+	}
+	
+	public List<Reserva> getReservas(){
+		return new ArrayList<Reserva>(this.reservas);
+	}
+	
+	public String getDNI() {
+		return this.dni;
+	}
+	
+	public List<Propiedad> getPropiedades() {
+		return new ArrayList<Propiedad>(this.propiedades);
 	}
 }

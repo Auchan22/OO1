@@ -25,4 +25,20 @@ public class Propiedad {
 		//vinculadas con esta propiedad, se encuentra o no en el intervalo  de tiempo indicado
 		return this.reservas.stream().noneMatch(r -> r.cumple(intervalo));
 	}
+	
+	public void agregarReserva(Reserva r) {
+		this.reservas.add(r);
+	}
+	
+	public double getPrecioNoche() {
+		return this.precioNoche;
+	}
+	
+	public void eliminarReserva(Reserva r) {
+		int indexReserva = this.reservas.indexOf(r);
+		
+		if(indexReserva > -1) {
+			this.reservas.remove(indexReserva);
+		}
+	}
 }
