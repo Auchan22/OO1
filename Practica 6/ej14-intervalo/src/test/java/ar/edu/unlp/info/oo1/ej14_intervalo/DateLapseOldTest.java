@@ -13,15 +13,15 @@ import org.junit.jupiter.api.Test;
  * Aca escribiremos los test de unidad para cada clase 
  * 
  */
-public class DateLapseTest {
+public class DateLapseOldTest {
 	
-	DateLapse dl, dlInvertido;
+	DateLapseOld dl, dlInvertido;
 	LocalDate fechaTrue, fechaFalse;
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		dl = new DateLapse(LocalDate.of(1972, 12, 15), LocalDate.of(2032, 12, 15));
-		dlInvertido = new DateLapse(LocalDate.of(2032, 12, 15), LocalDate.of(1972, 12, 15));
+		dl = new DateLapseOld(LocalDate.of(1972, 12, 15), LocalDate.of(2032, 12, 15));
+		dlInvertido = new DateLapseOld(LocalDate.of(2032, 12, 15), LocalDate.of(1972, 12, 15));
 		fechaTrue = LocalDate.of(2023, 9, 12);
 		fechaFalse = LocalDate.of(2050, 1, 31);
 	}

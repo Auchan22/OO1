@@ -3,10 +3,10 @@ package ar.edu.unlp.info.oo1.ej14_intervalo;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class DateLapse {
+public class DateLapseOld implements DateLapseInterface {
 	private LocalDate from, to;
 	
-	public DateLapse(LocalDate from, LocalDate to) {
+	public DateLapseOld(LocalDate from, LocalDate to) {
 		this.from = from;
 		this.to = to;
 	}
