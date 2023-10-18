@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public abstract class Llamada {
-	protected LocalDates fecha;
+	protected LocalDateTime fecha;
 	protected int duracion;
 	protected String numeroOrigen;
 	protected String numeroDestino;
