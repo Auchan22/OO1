@@ -13,7 +13,9 @@ public class Cliente extends Persona {
 	}
 	
 	public Pedido crearPedido(Producto p, int cantidad, FormaDePago pago, MecanismoDeEnvio envio) {
-		return null;
+		Pedido pe = new Pedido(this, p, cantidad, pago, envio);
+		this.pedidos.add(pe);
+		return pe;
 	}
 	
 }

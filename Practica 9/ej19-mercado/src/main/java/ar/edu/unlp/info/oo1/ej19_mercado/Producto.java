@@ -18,10 +18,21 @@ public class Producto {
 	public boolean tieneUnidades(int c) {
 		return this.unidadesDisponibles >= c;
 	}
+	
+	public void removerCantidades(int c) {
+		this.unidadesDisponibles -= c;
+	}
 
 	public String getNombre() {
 		return nombre;
 	}
 	
+	public double getPrecio() {
+		return precio;
+	}
+	
+	public Vendedor getVendedor() {
+		return this.vendedor;
+	}
 	
 }
