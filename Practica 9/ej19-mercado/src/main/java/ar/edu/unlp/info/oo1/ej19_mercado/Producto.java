@@ -35,4 +35,8 @@ public class Producto {
 		return this.vendedor;
 	}
 	
+	public int getStock() {
+		return this.unidadesDisponibles;
+	}
+	
 }

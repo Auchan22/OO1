@@ -47,14 +47,16 @@ public class Sistema {
 	}
 	
 	public List<Producto> buscarProducto(String nombre) {
-		return this.vendedores.stream().map(v -> v.buscarProducto(nombre)).collect(Collectors.toList());
+		return this.vendedores.stream().map(v -> v.buscarProducto(nombre)).filter(p -> p != null).collect(Collectors.toList());
 	}
 	
-	public void crearPedido(Cliente c, Producto p, int cant, FormaDePago pago, MecanismoDeEnvio m) {
+	public Pedido crearPedido(Cliente c, Producto p, int cant, FormaDePago pago, MecanismoDeEnvio m) {
 		if(p.tieneUnidades(cant)) {
-			c.crearPedido(p, cant, pago, m);
+			Pedido aux = c.crearPedido(p, cant, pago, m);
 			p.removerCantidades(cant);
+			return aux;
 		}
+		return null;
 	}
 	
 	public double calcularCostoPedido(Pedido p) {
