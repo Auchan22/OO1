@@ -11,11 +11,14 @@ public class Factura {
 	public Factura(String patente, double monto, boolean d) {
 		this.fecha = LocalDate.now();
 		this.patente = patente;
-		this.monto = monto;
+		this.monto = getMontoFinal(monto);
 		this.descuento = d;
 	}
 	
-	public double getMontoFinal() {
-		return this.monto - (descuento ? this.monto * 0.05 : 0); 
+	private double getMontoFinal(double m) {
+		if(this.descuento) {
+			return m * 1.05;
+		}
+		return m;
 	}
 }

@@ -22,8 +22,17 @@ public class Vehiculo {
 		return this.capacidad > 0;
 	}
 	
-	public boolean mayorCincoAnios() {
-		return ChronoUnit.YEARS.between(LocalDate.of, null)
+	public void ocuparEspacio() {
+		if(tieneCapacidad()) {
+			this.capacidad++;
+		}
+	}
+
+	public boolean mayorACincoAnios(int anio) {
+		return (this.añoFabricacion - anio) > 5;
 	}
 	
+	public Conductor getDueño() {
+		return this.dueño;
+	}
 }

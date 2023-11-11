@@ -2,11 +2,12 @@ package ar.edu.unlp.info.oo1.ej21_poolcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class Usuario {
 	private String nombre;
-	private double saldo;
-	private List<Viaje> viajes;
+	protected double saldo;
+	protected List<Viaje> viajes;
 	
 	public Usuario(String nombre) {
 		this.nombre = nombre;
@@ -19,6 +20,14 @@ public abstract class Usuario {
 	}
 	
 	public abstract void cargarSaldo(double m);
+	
+	public List<Viaje> getViajesDiaSiguiente(){
+		return this.viajes.stream().filter(v -> v.empiezaDiaSiguiente()).collect(Collectors.toList());
+	}
+	
+	public void descontarSaldo(double m) {
+		this.saldo -= m;
+	}
 	
 	
 }

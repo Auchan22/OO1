@@ -1,5 +1,6 @@
 package ar.edu.unlp.info.oo1.parcialRecu1_fabo;
 
+
 public class Empleado {
 	private	String nombreCompleto;
 	private double valorHora;
@@ -12,4 +13,5 @@ public class Empleado {
 	public double getValorHora(){
 		return this.valorHora;
 	}
+
 }
